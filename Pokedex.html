@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Pokedex</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Buttons CSS -->
+    <link rel="stylesheet" href="https://press-css.io/press-2.0.8.css">
+
+    <!-- SweetAlert JS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+   
+    <audio id="audioplayer" autobuffer="" loop="true" preload="auto" src="sound/opening.mp3">
+    </audio>
+    <script src="js/audio.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                
+               <img src="images/star-pokemon.png" style="width:50px;height:50px;" class="m-auto">
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="index.html">
+                            <img src="images/home.png" style="width:30px; height: 30px;">
+                        <br>
+                         Home
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="Pokedex.html">
+                        <img src="images/pokedex.png" style="width:30px; height: 30px;">
+                        Pokédex
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#">
+                            <img src="images/FAQ.png" style="width:30px; height: 30px;">
+                        <br>
+                         FAQ
+                    </a>
+                </li>
+
+                <li>
+                        <a style="cursor: pointer;" onclick="mustSignUp()">
+                                <img src="images/play.png" style="width:30px; height: 30px;">
+                             Play
+                        </a>
+                    </li>
+
+                <li>
+                        <a href="#">
+                                <img src="images/about.png" style="width:30px; height: 30px;">
+                            <br>
+                             About
+                        </a>
+                    </li>
+
+
+
+            </ul>
+
+
+
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <p> The Pokédex is a digital encyclopedia created by Porfessor Oak as an invaluable tool for Trainers in the Pokémon world.</p> 
+                        <p> It gives information about all Pokémons in the pokemon universe. </p>
+                        <p>Use it's knowledge wisely and become the best trainer!</p>
+                    </div>
+                    <div class="col-6">
+                        <p>Search pokemons by Name or Type</p>
+                            <input id="searchbar" oninput="searchPokemon()" type="text"
+                            name="search" placeholder="Search a pokemon.."> 
+
+            
+                                <select id= "pokeType" name="pokeType">
+                                    <option data-value="none">None</option>
+                                    <option data-value="bug">Bug</option>
+                                    <option data-value="dark">Dark</option>
+                                    <option data-value="dragon">Dragon</option>
+                                    <option data-value="electric">Electric</option>
+                                    <option data-value="fairy">Fairy</option>
+                                    <option data-value="fighting">Fighting</option>
+                                    <option data-value="fire">Fire</option>
+                                    <option data-value="flying">Flying</option>
+                                    <option data-value="ghost">Ghost</option>
+                                    <option data-value="grass">Grass</option>
+                                    <option data-value="ground">Ground</option>
+                                    <option data-value="ice">Ice</option>
+                                    <option data-value="normal">Normal</option>
+                                    <option data-value="poison">Poison</option>
+                                    <option data-value="psychic">Psychic</option>
+                                    <option data-value="rock">Rock</option>
+                                    <option data-value="steel">Steel</option>
+                                    <option data-value="water">Water</option>
+                                </select>
+                                <br><br>
+                                
+                                <div style=" text-align: center;" id="poke-money-shop-show"> </div>
+                                <br>
+                                <!-- <button onclick="freeMoney()"> Free Money </button> -->
+                        </div>
+                </div>
+            </div>
+
+
+
+
+                <div class="container-pokedex">
+                        <div class="card-group">
+                
+
+                        </div>
+                    </div>
+
+
+
+ 
+   
+
+
+
+
+<br>
+              <!-- <img class="pika-run" src="images/po.gif"> -->
+        </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+    crossorigin="anonymous">
+    </script>
+
+    <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+     crossorigin="anonymous">
+     </script>
+
+
+
+    <script src="js/pokedex.js"> </script>
+
+
+
+
+</body>
+
+</html>

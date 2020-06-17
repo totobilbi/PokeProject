@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Pokedex</title>
+
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/pokemon-battle.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+
+    <!-- SweetAlert JS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+
+    <audio id="battle-engage-audio" src="sound/battle.mp3" loop="loop"></audio>
+    <audio id="pokemon-hit-audio" src="sound/hit.mp3"></audio>
+</head>
+
+<body>
+     
+  
+  <div id="light" class="white_content">
+      <div class="blinkRound text-center">Round 1</div>     
+    <main class="  start-battle-animation">
+      <div class="gameTitle">    
+         
+      </div>
+                    
+      <div class="heatlhbars">
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-5">
+              <div class="hero-name pokeNameTitle"></div>
+              <div class="health-box-hero">
+                <div class="health-bar-red"></div>
+                <div class="health-bar">
+                    <div class="health-bar-text"></div>
+                </div>
+            
+              </div>
+            </div>
+
+            <div class="col-2"> </div>
+
+            <div class="col-5">
+                <div class="enemy-name pokeNameTitle"></div>
+              <div class="health-box-enemy">
+                <div class="health-bar-red"></div>
+                <div class="health-bar">
+                    <div class="health-bar-text"></div>
+                </div>
+                
+              </div>
+            </div>
+
+      </div>
+
+      <div class="row">
+
+          <div class="col-5">
+            <div class="shield-box-hero">
+              <div class="shield-bar-red"></div>
+              <div class="shield-bar">
+                <div class="shield-bar-text"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">     
+            <!-- <div class="dmgenemy btn" type="button">Damage enemy </div>
+            <div class="dmgHero btn" type="button">Damage Hero</div> -->
+        </div>
+
+          <div class="col-5">
+            <div class="shield-box-enemy">
+              <div class="shield-bar-red"></div>
+              <div class="shield-bar">
+                <div class="shield-bar-text"></div>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+                  
+
+
+      </div>
+    </div>
+
+          
+    <div class="blinkRound2 text-center">Round 1</div>     
+
+      <div id="enemyInfo" class="tooltiptail"> </div>
+      <div id="enemySpawn" > </div>
+
+      <div id="heroInfo" class="tooltiptail"> </div>
+      
+      <div id="heroSpawn" > </div>
+                    
+
+      </main>
+
+     </div>
+     <div class="attack-list-position   start-battle-animation">         
+        <ul class="attack-list"> </ul>
+      </div>
+
+      <div class="msg-board-position   start-battle-animation">
+        <div class="msg-board"> <p> The battle has begun!</p> </div>
+      </div>
+
+ 
+     <div id="fade" class="black_overlay"> </div>
+     
+
+  
+        
+
+
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+     
+    <script src="js/pokemon-battle.js"> </script>
+
+
+
+
+</body>
+
+</html>

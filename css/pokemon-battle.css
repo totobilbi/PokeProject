@@ -1,0 +1,382 @@
+/* ---------------------------------------------------
+   Game Frame
+----------------------------------------------------- */
+
+
+.black_overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    /* -moz-opacity: 0.8;
+    opacity: .80; */
+    filter: alpha(opacity=80);
+  }
+  .white_content {
+    background-image: url('../images/field3.png');
+    background-size: 101%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    width: 70%;
+    height: 77%;
+    padding: 16px;
+    border: 16px solid saddlebrown;
+    z-index: 1002;
+  }
+
+   body {
+    user-select: none;
+   }
+
+  /* ---------------------------------------------------
+  Pokemons locations
+----------------------------------------------------- */
+
+  #enemyPokeImg {
+  transform: scale(2);
+  }
+
+  #enemySpawn {
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    opacity: 0.2;
+  }
+
+  #heroPokeImg {
+    transform: scale(-2, 2);
+  }
+
+
+  #heroSpawn {
+    position: absolute;
+    top: 60%;
+    right: 80%;
+    opacity: 0.2;
+  }
+
+
+
+  /* ---------------------------------------------------
+   Health & Shield bars
+----------------------------------------------------- */
+  .pokeNameTitle {
+    font-family: 'Open Sans', sans-serif;
+    color: orange; 
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+               bottom: 70%;
+  }
+
+  .hero-name {
+    position: absolute;
+    left: 10%;
+    background-color: transparent;
+    height: 30px;
+    width: 150px;
+  }
+
+  .enemy-name {
+    position: absolute;
+    left: 35%;
+    background-color: transparent;
+    height: 30px;
+    width: 150px;
+  }
+
+  .health-box-enemy {
+    position: relative;
+    left: 20%;
+    top: 80%;
+    height: 100%;
+    width: 85%;
+    border: solid 1px black;
+  }
+
+
+  .health-box-hero {
+    position: relative;
+    right: 5%;
+    top: 80%;
+    background-color: transparent;
+    height: 100%;
+    width: 85%;;
+    border: solid 1px black;
+  }
+
+  .shield-box-enemy {
+    position: relative;
+    left: 20%;
+    top: 80%;
+    background-color: transparent;
+    height: 100%;
+    width: 85%;
+    border: solid 1px black;
+  }
+
+
+  .shield-box-hero {
+    position: relative;
+    right: 5%;
+    top: 80%;
+    background-color: transparent;
+    height: 100%;
+    width: 85%;
+    border: solid 1px black;
+  }
+
+  .health-bar-red {
+    width: 100%;
+    height: 100%;
+    background-color: #cc0000;
+  }
+
+  .shield-bar-red {
+    width: 100%;
+    height: 100%;
+    background-color: #cc0000;
+  }
+
+
+  .health-bar {
+    background-color: #007f00;
+    width: 100%;
+    position: relative;
+    bottom: 100%;
+    height: 28px; 
+  }
+
+  .shield-bar {
+    background-color: rgba(11, 71, 238, 0.801);
+    width: 100%;
+    position: relative;
+    bottom: 100%;
+    height: 28px;
+    
+  }
+
+  .health-bar-text {
+    position: relative;
+    left: 40%;
+    z-index: 1001;
+  }
+
+  
+  .shield-bar-text {
+    position: relative;
+    left: 40%;
+    z-index: 1001;
+  }
+
+
+
+
+  /* ---------------------------------------------------
+   Bottom UI
+----------------------------------------------------- */
+
+.attack-list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  list-style-type:none;
+  padding: 0;
+  margin:0;
+  transition: opacity 0.3s ease;
+  text-transform: capitalize;
+  width: 100%;
+  height: 100%;
+  }
+    
+    li{
+      background: #FFFAFA;
+      width: 50%;
+      height: 50%;
+      text-align: center;
+      box-sizing: border-box;
+      border: 1px solid #666;
+      cursor: pointer;
+      transition: 0.3s ease;
+  }
+   
+  .attack-list-position {
+    position: absolute;
+    border: 4px solid red;
+    bottom:0;
+    left: 15%;
+    width: 40%;
+    height: 23%;
+    z-index:  1002;
+  }
+
+  .disabled {
+    opacity: 0.5;
+    position: relative;
+    z-index: -1;
+    cursor: initial;
+    pointer-events: none;
+    }
+
+  .msg-board{
+    width: 100%;
+    text-align: center;
+    }
+
+  .msg-board-position {
+    position: absolute;
+    border: 5px solid red;
+    bottom: 18%;
+    left: 55%;
+    width: 30%;
+    height: 5%;
+    z-index:  1002;
+    background: lavender;
+  }
+
+
+   /* ---------------------------------------------------
+    Animations
+----------------------------------------------------- */
+
+.start-battle-animation{
+display: none;
+}
+
+   /* ---------------------------------------------------
+    Tooltip
+----------------------------------------------------- */
+.tooltip {
+  position: fixed;
+}
+
+.swal-modal {
+  background-color: rgba(63,255,106,0.69);
+  border: 3px solid white;
+}
+
+.swal-footer {
+  text-align: center;
+}
+
+.poke-money-icon{
+  width: 8%;
+  height: 8%;
+  margin-bottom: 1%;
+  }
+
+
+  .victory-img {
+    width: 80%;
+    height: 40%;
+  }
+
+  
+  .lose-img {
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+     /* ---------------------------------------------------
+ Pokemon Info 
+----------------------------------------------------- */
+
+  /* .poke-card-info {
+    background-color: #2980b9;
+    width: 220px;
+    height: 300px;
+    visibility: hidden;
+  } */
+
+  #enemyInfo {
+    position: absolute;
+    background-color: #2980b9;
+    opacity: 0.8;
+    width: 250px;
+    height: 210px;
+    visibility: hidden;
+    z-index: 2200;
+    left: 75%;
+    bottom: 50%;
+  }
+
+  #heroInfo {
+    position: absolute;
+    background-color: #2980b9;
+    opacity: 0.8;
+    width: 250px;
+    height: 210px;
+    visibility: hidden;
+    z-index: 2200;
+    left: 10%;
+    bottom: 50%;
+    
+  }
+
+  .tooltiptail {
+    display: block;
+    border-color: #ffffff #ffffff #ffffff #ffffff;
+    border-style: solid;
+    border-width: 5px;
+    width: 0px;
+    height: 0px;
+  }
+
+
+
+  .exit-pokemon-info {
+    width: 300%;
+    height: 100%;
+  }
+  
+
+
+   /* ---------------------------------------------------
+   Random shit
+----------------------------------------------------- */
+
+.blinkRound, .blinkRound2 {
+animation: blinker 1s linear infinite;
+z-index: 3004;
+font-family: 'Open Sans', sans-serif;
+color: red; 
+text-transform: uppercase;
+font-size: 40px;
+font-weight: 800;
+letter-spacing: -3px;
+line-height: 1;
+text-shadow: #EDEDED 3px 2px 0;
+text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+           0 3px 0 #777777, 0 4px 0 #666666,
+           0 5px 0 #555555, 0 6px 0 #444444,
+           0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+           0 9px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+  p {
+    font-weight: bold;
+  }
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+

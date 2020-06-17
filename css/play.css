@@ -1,0 +1,89 @@
+.black_overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    /* -moz-opacity: 0.8;
+    opacity: .80; */
+    filter: alpha(opacity=80);
+  }
+  .white_content {
+    background-image: url('../images/back.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 70%;
+    height: 90%;
+    padding: 16px;
+    border: 16px solid orange;
+    z-index: 1002;
+  }
+
+
+
+  .gameTitle {
+    font-family: 'Open Sans', sans-serif;
+    color: yellowgreen; 
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+               margin-top: 10px;
+  
+  }
+
+  .startButtons {
+      margin-top: 10%;
+  }
+
+
+  body {
+    user-select: none;
+  }
+
+
+  #choose-pokemon-for-battle {
+    text-align: center;
+    margin-top: 15%;
+  }
+
+  .poke-inventory-text {
+    font-family: 'Open Sans', sans-serif;
+    color: purple;
+    font-size: 250%;
+    font-weight: 800;
+    letter-spacing: -3px;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .pokemons-inventory {
+    width: 5%;
+    height: 5%;
+    cursor: pointer;
+  }
+
+
+.pokemons-inventory:hover {
+transform: scale(2); 
+}
+
+

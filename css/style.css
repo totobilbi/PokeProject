@@ -1,0 +1,761 @@
+
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../images/pokebackgroundwoclouds.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -3;
+    overflow-x: hidden;
+    width: 100vw;
+    user-select: none;
+}
+
+
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+i,
+span {
+    display: inline-block;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    z-index: -1;
+}
+
+
+#sidebar {
+    min-width: 80px;
+    max-width: 80px;
+    /* background: rgb(78, 12, 7); */
+    background: #0B486B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F56217, #0B486B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F56217, #0B486B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    transition: all 0s;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
+
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+
+#sidebar.active .dropdown-toggle::after {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0B486B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F56217, #0B486B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F56217, #0B486B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
+    font-size: 1.8em;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------
+    Search Box
+----------------------------------------------------- */
+
+
+/* ---------------------------------------------------
+ Pokedex
+----------------------------------------------------- */
+
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+  }
+  .white_content {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 60%;
+    padding: 16px;
+    border: 16px solid orange;
+    background-color: white;
+    z-index: 1002;
+    background-image: url('../images/back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+  }
+  
+
+  
+#poke-money-shop-show {
+	box-shadow:inset 0px 39px 0px -24px #e67a73;
+	background-color:#e4685d;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    cursor: not-allowed;
+    pointer-events: none;
+    width: 25%;
+    color:yellowgreen;
+    font-weight: bold;
+}
+
+.poke-money-icon-balance {
+width: 22%;
+height: 22%;
+margin-bottom: 1%;
+}
+
+.swal-text {
+    background-color: #FEFAE3;
+    padding: 17px;
+    border: 1px solid #F0E1A1;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    color: #61534e;
+  }
+
+  .swal-footer {
+    text-align: center;
+  }
+
+
+/* ---------------------------------------------------
+    Flip Card
+----------------------------------------------------- */
+.flip-card {
+    background-color: transparent;
+    width: 220px;
+    height: 300px;
+    perspective: 1000px;
+    display: inline-block;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+    color: black;
+  }
+  
+  .flip-card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+
+/* ---------------------------------------------------
+   Sign Up
+----------------------------------------------------- */
+
+  .signUpTitle {
+    font-family: 'Open Sans', sans-serif;
+    color:yellowgreen; 
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+              
+  
+  }
+
+  .signUpLabels {
+    font-family: 'Open Sans', sans-serif;
+    color: yellowgreen;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+               margin-top: 10px;
+  
+  }
+
+  .black_overlay {
+    display: none;
+    background-image: url("../images/blacksquare.png");
+    height: 210vh;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+  }
+
+  .white_content {
+    display: none;
+    top:0;
+    left: 25%;
+    width: 50%;
+    height: 100%;
+    padding: 16px;
+    border: 16px solid orange;
+    z-index: 1002;
+    background-image: url("../images/squirtle-island.gif");
+  }
+  
+#backwardsSignUp {
+    height: 30px;
+    width: 30px;
+}
+
+
+#sign-up {
+    top: 80%;
+}
+
+
+
+/* ---------------------------------------------------
+    Random shit
+----------------------------------------------------- */
+
+
+.pokeNum {
+color: black;
+font-weight: bold;
+}
+
+.login-container {
+    opacity: 0.8;
+   
+}
+
+
+
+.sign-container {
+   opacity: 0.8;
+}
+
+#sidebarCollapse {
+background: transparent;
+}
+
+
+
+.card {
+    text-align: center;
+    border-width: 10px;
+    background: transparent;
+}
+
+
+
+
+.card-img-top{
+width: 200px;
+height: 200px;
+}
+
+.charm-gif {
+    width: 200px;
+    height: 150px; 
+}
+
+.mainForms{
+    font-family: 'Open Sans', sans-serif;
+    color: orange; 
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.trainer-info-title {
+    font-family: 'Open Sans', sans-serif;
+    color: blue; 
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.poke-money-icon {
+width: 4%;
+height: 4%;
+margin-bottom: 1%;
+}
+
+.poke-money-icon-shop {
+width: 20%;
+height: 20%;
+margin-bottom: 2%;
+}
+
+.trainer-details {
+font-weight: 800;
+font-size: 150%;
+text-shadow: #EDEDED 1px 2px 0;
+line-height: 200%;
+}
+
+.pokemon-buy-button {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:3px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size: 60%;
+	font-weight:bold;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #ffee66;
+}
+
+
+.pokemon-buy-button:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+.pokemon-buy-button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.pokemon-buy-text {
+    font-family: 'Open Sans', sans-serif;
+    color: yellowgreen;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.pokemons-inventory {
+    width: 10%;
+    height: 12%;
+}
+
+
+.owned-pokemon-button {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+
+.req-pokemon-button {
+	box-shadow:inset 0px 39px 0px -24px #e67a73;
+	background-color:#e4685d;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+
+
+/* ---------------------------------------------------
+   Animations
+----------------------------------------------------- */
+
+
+.pageTitle {
+    font-family: 'Open Sans', sans-serif;
+    color: yellowgreen; 
+    text-transform: uppercase;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    text-shadow: #EDEDED 3px 2px 0;
+    text-align: center;
+    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+               0 3px 0 #777777, 0 4px 0 #666666,
+               0 5px 0 #555555, 0 6px 0 #444444,
+               0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+               0 9px 10px rgba(0, 0, 0, 0.2);
+    /* animation-name: titleFade;
+    animation-duration: 2s;            */
+  }
+
+
+
+  /* @keyframes titleFade {
+    0% {
+        transform: translateY(-50vh);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0vh);
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}   */
+
+
+.mew-run {
+    animation-name: mewRUN;
+    animation-duration: 15s;
+    transform: translateX(-100vh);
+    animation-delay: 12s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    width: 250px;
+    height: 200px;
+
+}
+
+
+@keyframes mewRUN {
+    0% {
+
+    }
+
+    
+
+    100% {
+        transform: translateX(250vh);
+    }
+}  
+
+
+.evee-run {
+    animation-name: eveeRUN;
+    animation-duration: 15s;
+    transform: translateX(250vh);
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    width: 200px;
+    height: 150px;
+  
+}
+
+
+@keyframes eveeRUN {
+    0% {
+
+    }
+
+    
+
+    100% {
+        transform: translateX(-100vh);
+    }
+}
+
+
+
+.pika-run {
+    animation-name: pikaRUN;
+    animation-duration: 15s;
+    transform: translateX(200vh);
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes pikaRUN {
+    0% {
+
+    }
+
+    
+
+    100% {
+        transform: translateX(-100vh);
+    }
+}
+
+
+
+#mc {
+    position: absolute;
+    top: 20%;
+    left: -170%;
+    animation-name: mc;
+    animation-duration: 180s;
+    transform: translateX(-200vh);
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    height:90% ;
+    z-index: -2;
+
+}
+
+
+@keyframes mc {
+    0% { 
+
+    }
+
+    
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+#mc2 {
+    position: absolute;
+    top: 20%;
+    left: -170%;
+    animation-name: mc2;
+    animation-duration: 180s;
+    transform: translateX(-200vh);
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    height:90% ;
+    z-index: -2;
+    animation-delay: 60s;
+}
+
+
+@keyframes mc2 {
+    0% { 
+
+    }
+
+    
+
+    100% {
+        transform: translateX(100%);
+    }
+}

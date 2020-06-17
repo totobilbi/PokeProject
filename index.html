@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Pokedex</title>
+
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Buttons CSS -->
+    <link rel="stylesheet" href="https://press-css.io/press-2.0.8.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <!-- SweetAlert JS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    <audio id="audioplayer" autobuffer="" loop="true" preload="auto" src="sound/opening.mp3" volume="0.2">
+    </audio>
+    <script src="js/audio.js"></script>
+</head>
+
+<body>
+        
+    <img id="mc" src="images/pokebackgroundclouds.png">
+    <img id="mc2" src="images/pokebackgroundclouds.png">
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+               
+                <strong>  <img src="images/star-pokemon.png" style="width:50px;height:50px;"> </strong>
+            </div>
+
+            <ul class="list-unstyled components navtext">
+                <li>
+                    <a href="index.html">
+                            <img src="images/home.png" style="width:30px; height: 30px;" class="m-auto">
+                        <br>
+                        Home  
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a style="cursor: pointer;" onclick="mustSignUp2()">
+                            <img src="images/pokedex.png" style="width:30px; height: 30px;">
+                          Pokédex
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                            <img src="images/FAQ.png" style="width:30px; height: 30px;">
+                        <br>
+                         FAQ  
+                    </a>
+                </li>
+                <li>
+                        <a style="cursor: pointer;" onclick="mustSignUp()">
+                                <img src="images/play.png" style="width:30px; height: 30px;">
+                             Play
+                        </a>
+                    </li>
+                <li>
+                        <a href="#">
+                                <img src="images/about.png" style="width:30px; height: 30px;">
+                            <br>
+                              About   
+                        </a>
+                    </li>
+
+
+
+
+            </ul>
+
+
+
+
+        </nav>
+
+    
+        <!-- Page Content  -->
+        <div id="content">
+            <h2 class="animated bounceInDown pageTitle">Welcome to the Pokédex</h2>
+            <br>
+            <p class="font-weight-bold"> Hello fellow trainers,</p>
+            <p> Register now to build your own poke-deck and battle against other pokemons! <br> Each pokemon has unique stats and abbiltes that differ him from the others. </p>
+            <p> The Pokédex section has a wealth of information on all the Pokémon creatures from the entire pokemon universe, <br> You can see the various stats of each Pokémon.</p>
+            <p>When building your deck you should take into consideration the Type of the pokemon, <br> The type of the pokemon define's the pokemons weakness and strength.</p>
+            <p> If you have any questions please visit the FAQ section or contact us for further information.</p>
+            <p class="font-weight-bold"> Wishing you the best of luck in the Pokemon Battle-Grounds!</p>
+            <div class="line"></div>
+
+        
+        <div class="row">
+            <div class="login-container text-center  col-6" id="login">
+                    <h2 class="mainForms"> Login </h2>
+                    <br>
+ 
+                  <label class="login-text font-weight-bold">Username: </label>
+                  <br>
+                  <input class="rounded  bg-secondary text-light font-weight-bold" id="mName" type="text"  name="username">
+                  <br>
+                  <a href="https://getbootstrap.com/docs/4.3/utilities/borders/" class="text-primary">
+                   Forgot your user name?
+                  </a>
+
+
+                    <br><br>
+                  <label class="login-text font-weight-bold">Password: </label>
+                  <br>
+                  <input class="rounded  bg-secondary text-light font-weight-bold" type="text" id="mPass" name="psw">
+                  <br>
+                  <a href="https://getbootstrap.com/docs/4.3/utilities/borders/" class="text-primary">
+                    Forgot your password?
+                   </a>
+                  <br><br>
+                  <input id="mCheckBox" type="checkbox" name="remmberMe" value="remmberMe"> Remmber me<br>
+                  <br> 
+                  <button id="sign-in" class="press press-lg press-deeppurple press-pill">Sign in</button>
+
+              </div>
+              <div class="text-center" id="login2"> 
+
+            </div>
+              <br>
+
+
+
+
+              <div class="sign-container col-6">
+                <h2 class="mainForms"> Register </h2>
+                <br>
+                <p class="font-weight-bold">Create a Pokédex account today!<br> With a Pokédex account, you can manage your Pokédex profile,<br> have fun on the Pokédex universe, <br> play the Pokédex awesome game, and much more! </p>          
+                <img class="charm-gif" src="images/charmander.gif">
+                <br>
+                <button class="press press-lg press-orange press-pill" onclick="openSignUpForm()">Create an account</button>
+                <br>
+              </div>
+
+              <div id="login3"> 
+
+              </div>
+
+
+            </div>
+
+
+            <br> <br> <br>
+
+            <img class="pika-run" src="images/po.gif">
+            <br>
+            <img class="evee-run" src="images/evve.gif">
+
+            <img class="mew-run" src="images/mew.gif">
+
+
+                
+
+                <!-- <img src="images/pokebackgroundgrass.png"> -->
+
+             
+
+        </div>
+        
+
+    </div>
+
+    
+    <div id="light" class="white_content sticky-top">
+            <img id="backwardsSignUp" src="images/backwards.png">
+            <div class="container">
+                <h2 class="signUpTitle text-center">Sign Up</h2>
+                <br>
+                <br> 
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-4 text-center">
+              <label class="signUpLabels">User Name: </label>
+              <br>
+              <input class="bg-transparent text-light border border-success" id="nName" type="text"  name="username">
+              
+            </div>
+            
+            <div class="col-4"></div>
+                
+                <div class="col-4 text-center">
+                        <label class="signUpLabels">Email Adress: </label>
+                        <br>
+                        <input class="bg-transparent text-light border border-success" id="nEmail" type="text"  name="email">
+                        
+                      </div>
+            </div>
+            <br> 
+            <br>
+            <br>
+
+            <div class="row">
+                    <div class="col-4 text-center">
+                            <label class="signUpLabels">Password: </label>
+                            <br>
+                            <input class="bg-transparent text-light border border-success" id="nPass" type="text"  name="password">
+                            
+                          </div>
+    
+                <div class="col-4"></div>
+                
+                <div class="col-4 text-center">
+                        <label class="signUpLabels">Favorite Pokemon: </label>
+                        <br>
+                        <input class="bg-transparent text-light border border-success" id="nPoke" type="text"  name="pokemon">
+                        
+                      </div>
+            </div>
+
+
+            <br> <br> <br>
+
+
+              <div class="row" >
+                    <div class="col-5 text-center"></div>
+                <div class="col-2">
+                        <button class="press  press-lightblue press-pill press-ghost d-flex align-items-end"" onclick="createAccount()"> Register</button>
+                </div>
+                <div class="col-5"> </div>
+        </div>
+
+             
+    
+    </div>
+
+
+
+        </div>
+        <div id="fade" class="black_overlay"></div>
+
+    
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+     
+    <script src="js/app.js"> </script>
+
+
+
+</body>
+
+</html>
